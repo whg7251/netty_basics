@@ -1,4 +1,4 @@
-package com.basics.io.chapter1;
+package com.basics.io;
 
 import java.io.*;
 
