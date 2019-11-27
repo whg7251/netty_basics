@@ -1,6 +1,7 @@
 package com.basics.io;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @ClassName BufferedApp
@@ -26,7 +27,7 @@ public class BufferedApp {
     private static void write() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt"),"UTF-8"));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt"), StandardCharsets.UTF_8));
             bufferedWriter.write("buffer输出流");
             bufferedWriter.flush();
         } catch (IOException e) {
@@ -57,9 +58,9 @@ public class BufferedApp {
 
         BufferedReader bufferedReader = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("data\\wc.txt"),"UTF-8"));
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("data\\wc.txt"), StandardCharsets.UTF_8));
 
-            String message = null;
+            String message;
             while ((message = bufferedReader.readLine()) != null) {
 
                 System.out.println(message);
