@@ -13,26 +13,26 @@ public class BufferedApp {
     public static void main(String[] args) {
 //        read();
 //        write();
-       
+
     }
 
     /**
-    * @Description: TODO 输出流
-    * @Param:
-    * @return: void
-    * @Author: Guo
-    * @Date: 9:57
-    */
+     * @Description: TODO 输出流
+     * @Param:
+     * @return: void
+     * @Author: Guo
+     * @Date: 9:57
+     */
     private static void write() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter=new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt")));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt")));
             bufferedWriter.write("buffer输出流");
             bufferedWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (bufferedWriter!=null){
+            if (bufferedWriter != null) {
                 try {
                     bufferedWriter.close();
                 } catch (IOException e) {
@@ -45,13 +45,13 @@ public class BufferedApp {
     }
 
 
-    /** 
-    * @Description: TODO 输入字节流转换输入字符流  并打印    InputStreamReader->字节转字符类   BufferedReader  ->buffer形式的字符输入流，继承自Reader
-    * @Param:  
-    * @return: void 
-    * @Author: Guo
-    * @Date: 9:42 
-    */ 
+    /**
+     * @Description: TODO 输入字节流转换输入字符流  并打印    InputStreamReader->字节转字符类   BufferedReader  ->buffer形式的字符输入流，继承自Reader
+     * @Param:
+     * @return: void
+     * @Author: Guo
+     * @Date: 9:42
+     */
     private static void read() {
 
 
@@ -60,7 +60,7 @@ public class BufferedApp {
             bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("data\\wc.txt")));
 
             String message = null;
-            while ((message=bufferedReader.readLine() )!=null){
+            while ((message = bufferedReader.readLine()) != null) {
 
                 System.out.println(message);
             }
@@ -68,7 +68,7 @@ public class BufferedApp {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (bufferedReader!=null){
+            if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
                 } catch (IOException e) {
