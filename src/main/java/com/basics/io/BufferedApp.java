@@ -26,7 +26,7 @@ public class BufferedApp {
     private static void write() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt")));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\data-out1.txt"),"UTF-8"));
             bufferedWriter.write("buffer输出流");
             bufferedWriter.flush();
         } catch (IOException e) {
@@ -57,7 +57,7 @@ public class BufferedApp {
 
         BufferedReader bufferedReader = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("data\\wc.txt")));
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("data\\wc.txt"),"UTF-8"));
 
             String message = null;
             while ((message = bufferedReader.readLine()) != null) {

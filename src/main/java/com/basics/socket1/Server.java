@@ -28,8 +28,8 @@ public class Server {
                 System.out.println("客户端[" + socket.getPort() + "]已启动");
 
                 //创建IO相关的输入输出
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\socket_out1.txt")));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\socket_out1.txt"),"UTF-8"));
 
                 String message = null;
                 if ((message = bufferedReader.readLine()) != null) {
