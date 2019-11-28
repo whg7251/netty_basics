@@ -36,9 +36,12 @@ public class Server {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8));
 
                 String message;
-                if ((message = bufferedReader.readLine()) != null) {
-                    System.out.println("client " + socket.getPort() + "  send data --> " + message);
-                    bufferedWriter.write("服务端发来的消息---> " + message);
+                while((message = bufferedReader.readLine()) != null) {
+                    logger.info("client " + socket.getPort() + "  send data --> " + message);
+                    if (message.equalsIgnoreCase(Constants.QUIT)){
+                        logger.info("客户端[" + socket.getPort() + "]已注销");
+                    }
+                    bufferedWriter.write(message+"\n");
                     bufferedWriter.flush();
                 }
             }
@@ -50,6 +53,7 @@ public class Server {
             if (serverSocket != null) {
                 try {
                     serverSocket.close();
+                    logger.error("server stopped...");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
