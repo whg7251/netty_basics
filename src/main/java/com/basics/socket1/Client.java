@@ -33,23 +33,28 @@ public class Client {
 
             //获取console输入内容的流
             BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-            String requestMessage ;
-            while ((requestMessage=consoleReader.readLine())!=null){
+            while (true){
+                String requestMessage =consoleReader.readLine();
                 writer.write(requestMessage+"\n");
                 writer.flush();
+
+                String responseMessage =reader.readLine();
+                logger.info("服务器发来的消息------>  " +responseMessage);
+
+                if(requestMessage !=null&&requestMessage.equalsIgnoreCase(Constants.QUIT)){
+                    System.out.println("客户端关闭");
+                    break;
+                }
             }
 
-            String responseMessage ;
-            while ((responseMessage=reader.readLine())!=null){
-                logger.info("服务器发来的消息------>  " +responseMessage);
-            }
-        } catch (IOException e) {
+                  } catch (IOException e) {
             e.printStackTrace();
         }finally {
 
             if (socket!=null){
                 try {
                     socket.close();
+                    logger.error("client stopped...");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
