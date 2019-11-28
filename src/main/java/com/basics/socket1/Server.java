@@ -33,7 +33,7 @@ public class Server {
                 logger.info("客户端[" + socket.getPort() + "]已启动");
                 //创建IO相关的输入输出
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("out\\socket_out1.txt"), StandardCharsets.UTF_8));
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8));
 
                 String message;
                 if ((message = bufferedReader.readLine()) != null) {
