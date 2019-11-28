@@ -29,6 +29,7 @@ public class Server {
             logger.info("启动服务器  监听端口为" + PORT);
             //TODO 循环等待，客户端连接
             for (;;){
+                //此时是阻塞式的，只能连接一个客户端
                 Socket socket = serverSocket.accept();
                 logger.info("客户端[" + socket.getPort() + "]已启动");
                 //创建IO相关的输入输出
